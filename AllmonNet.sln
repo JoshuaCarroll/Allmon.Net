@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllmonNet", "AllmonNet.csproj", "{D8756A8C-A78E-416E-965B-433AB4C21F44}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8756A8C-A78E-416E-965B-433AB4C21F44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8756A8C-A78E-416E-965B-433AB4C21F44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8756A8C-A78E-416E-965B-433AB4C21F44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8756A8C-A78E-416E-965B-433AB4C21F44}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {06E9D854-9C55-4DEA-BE28-1AE549C33A4D}
+	EndGlobalSection
+EndGlobal

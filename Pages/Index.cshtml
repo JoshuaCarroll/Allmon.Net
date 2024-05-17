@@ -1,0 +1,19 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Node Info";
+
+    // AllstarDatabaseRecord record = new AllstarDatabaseRecord();
+    // AllstarDatabase.Records.TryGetValue(node, out record);
+
+    string s = Allstar.RequestStatus("499601");
+    string t = Allstar.RequestConn("499601");
+
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <p>@s</p>
+    <hr />
+    <p>@t</p>
+</div>
