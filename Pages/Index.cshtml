@@ -6,14 +6,55 @@
     // AllstarDatabaseRecord record = new AllstarDatabaseRecord();
     // AllstarDatabase.Records.TryGetValue(node, out record);
 
-    string s = Allstar.RequestStatus("499601");
-    string t = Allstar.RequestConn("499601");
-
 }
 
 <div class="text-center">
-    <h1 class="display-4">@ViewData["Title"]</h1>
-    <p>@s</p>
-    <hr />
-    <p>@t</p>
+    <h1 id="pageTitle" class="display-4">@ViewData["Title"]</h1>
+    <p><button class="btn btn-primary" id="load">Load</button></p>
+    <div id="dvItems"></div>
+    <table id="tblConnections">
+        <thead>
+            <tr>
+                <td>Node</td>
+                <td>Description</td>
+                <td>Last Received</td>
+                <td>Direction</td>
+                <td>Connected</td>
+                <td>Mode</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
 </div>
+@section scripts {
+    <script>
+        function getNewData() {
+            $.ajax({
+                type: "GET",
+                url: "/?handler=ConnectionData",
+                contentType: "application/json",
+                dataType: "json",
+                success: function (response) {
+                    var data = JSON.parse(response);
+                    console.log(data);
+
+                    $("#pageTitle").text("Node " + data.Node);
+
+                    $("#tblConnections tbody").html("");
+                    for (var x = 0; x < data.Connections.length; x++) {
+                        var row = `<tr><td>${data.Connections[x].Node}</td><td> </td><td>${data.Connections[x].KeyedTime}</td><td></td><td></td><td></td></tr>`;
+                        $("#tblConnections tbody").append(row);
+                    }
+                },
+                failure: function (response) {
+                    console.error(response);
+                }
+            });
+        }
+
+        getNewData();
+        window.setInterval(() => getNewData(), 1000);
+    </script>
+}

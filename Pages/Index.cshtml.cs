@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
 
 namespace AllmonNet.Pages
 {
@@ -22,6 +24,14 @@ namespace AllmonNet.Pages
         public void OnPost() 
         {
             IsPost = true;
+        }
+
+        public IActionResult OnGetConnectionData()
+        {
+            AsteriskResponse response = Allstar.RequestConn("499601");
+            string json = JsonConvert.SerializeObject(response);
+            JsonResult jr = new JsonResult(json);
+            return jr;
         }
     }
 }
